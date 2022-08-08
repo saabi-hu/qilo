@@ -301,9 +301,9 @@ def main():
                 print(errmsg)
             return()
 
-        hostinfo = ProLiant_server(REST_OBJ)
-        firmware_report['ILOIPv4Address'] = hostinfo.ILOIPv4Address()
-        firmware_report['ILOIPv6Address'] = hostinfo.ILOIPv6Address()
+        # hostinfo = ProLiant_server(REST_OBJ)
+        firmware_report['ILOIPv4Address'] = get_ILOIPv4Addresses(REST_OBJ)
+        firmware_report['ILOIPv6Address'] = get_ILOIPv6Addresses(REST_OBJ)
         if verbosity:
             pp.pprint(firmware_report)
 
