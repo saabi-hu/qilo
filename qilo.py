@@ -90,7 +90,10 @@ def get_ILOIPv6Addresses(redfish_obj):
 def get_iLOHostName(redfish_obj):
     """ Collect iLO's hostname """
 
-    ilohostname = redfish_obj.get('/redfish/v1/Managers/1').dict['Name']
+    ilohostname = []
+    ilos = redfish_obj.get('/redfish/v1/').dict['Oem']['Hpe']['Manager']
+    for i in ilos:
+        ilohostname.append(i['HostName'])
     return(ilohostname)
 
 
