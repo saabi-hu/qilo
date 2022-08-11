@@ -88,6 +88,9 @@ def get_ILOIPv6Addresses(redfish_obj):
 
 
 def get_iLOHostName(redfish_obj):
+    """ Collect iLO's hostname """
+
+    ilohostname = ""
     return(ilohostname)
 
 
