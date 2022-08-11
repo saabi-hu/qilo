@@ -87,11 +87,18 @@ def get_ILOIPv6Addresses(redfish_obj):
     return(iloipv6addresses)
 
 
-def get_iLOName(redfish_obj):
+def get_iLOHostName(redfish_obj):
     """ Collect iLO's hostname """
 
     ilohostname = redfish_obj.get('/redfish/v1/Managers/1').dict['Name']
     return(ilohostname)
+
+
+def get_iLOHealth(redfish_obj):
+    """ Collect iLO's Health info """
+
+    ilohealth = redfish_obj.get('/redfish/v1/Managers/1').dict['Status']['Health']
+    return(ilohealth)
 
 
 def get_ProductName(redfish_obj):
@@ -307,7 +314,8 @@ def main():
         # hostinfo = ProLiant_server(REST_OBJ)
         firmware_report['ILOIPv4Address'] = get_ILOIPv4Addresses(REST_OBJ)
         firmware_report['ILOIPv6Address'] = get_ILOIPv6Addresses(REST_OBJ)
-        firmware_report['iLOName'] = get_iLOName(REST_OBJ)
+        firmware_report['iLOName'] = get_iLOHostName(REST_OBJ)
+        firmware_report['iLOHealth'] = get_iLOHealth(REST_OBJ)
         if verbosity:
             pp.pprint(firmware_report)
 
