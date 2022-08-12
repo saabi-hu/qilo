@@ -13,14 +13,6 @@ import pprint
 from redfish.rest.v1 import ServerDownOrUnreachableError
 
 
-inputfile = 'serverlist.csv'
-outputfile = 'serverdata.csv'
-logfile = 'qilo.log'
-loglevel = 'DEBUG'
-pp = pprint.PrettyPrinter(indent=2)
-DISABLE_RESOURCE_DIR = False
-firmware_report = {}
-
 
 def read_arguments():
     parser = argparse.ArgumentParser(
@@ -198,6 +190,13 @@ def computer_details(_redfishobj):
 
 
 def main():
+    inputfile = 'serverlist.csv'
+    outputfile = 'serverdata.csv'
+    logfile = 'qilo.log'
+    loglevel = 'DEBUG'
+    pp = pprint.PrettyPrinter(indent=2)
+    DISABLE_RESOURCE_DIR = False
+    firmware_report = {}
     args = read_arguments()
     loglevel = args.loglevel
     verbosity = args.verbose
