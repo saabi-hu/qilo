@@ -13,6 +13,8 @@ import pprint
 from redfish.rest.v1 import ServerDownOrUnreachableError
 
 
+DISABLE_RESOURCE_DIR = False
+
 
 def read_arguments():
     parser = argparse.ArgumentParser(
@@ -195,7 +197,6 @@ def main():
     logfile = 'qilo.log'
     loglevel = 'DEBUG'
     pp = pprint.PrettyPrinter(indent=2)
-    DISABLE_RESOURCE_DIR = False
     firmware_report = {}
     args = read_arguments()
     loglevel = args.loglevel
